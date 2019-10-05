@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{booktabs} % for professional tables
+\usepackage{natbib}
 
 % hyperref makes hyperlinks in the resulting PDF.
 % If your build breaks (sometimes temporarily if a hyperlink spans a page)
@@ -28,6 +29,8 @@
 \icmltitlerunning{COSE474-2019F: Final Project Proposal}
 
 \begin{document}
+
+\nocite{yu2015image,chu2017manga,redmon2016you,redmon2017yolo9000,redmon2018yolov3}
 
 \twocolumn[
 \icmltitle{COSE474-2019F: Final Project Proposal \\
@@ -99,12 +102,12 @@ Artificial faces, especially those in Japanese animations are interesting target
 \label{introduction}
 
 Human faces are one of the most beloved targets of computer vision field.
-There have been various approaches on handling human faces, but the rise of machine learning technologies boosted accuracy in perceiving human faces. (ref: https://www.sciencedirect.com/science/article/pii/S0925231218303229)
+There have been various approaches on handling human faces, but the rise of machine learning technologies boosted accuracy in perceiving human faces. \cite{sun2018face}
 Also, technologies on human faces did not stay on detecting where they are, but evolves to discover what they represent, or fooling machines, even humans: machine learning enabled other aspects of using human faces.
-Recent technologies aims to discover what faces are trying to represent, like race distinction(ref: https://www.mdpi.com/2073-8994/10/11/564/pdf) and facial expressions.
-Emonet and Microsoft Face API are such examples: in order to distinguish human emotions, the model is based on the general traits of each emotions represented in faces when referencing visual datasets (ref: https://arxiv.org/abs/1503.01800).
+Recent technologies aims to discover what faces are trying to represent, like race distinction\cite{vo2018race} and facial expressions.
+Emonet and Microsoft Face API are such examples: in order to distinguish human emotions, the model is based on the general traits of each emotions represented in faces when referencing visual datasets\cite{DBLP:journals/corr/KahouBLGMKJFDBF15}.
 
-As the multimedia industries and deep learning technologies continues to grow, artificial faces from those media soon became an greater interest in machine learning fields. There were several researches targeting human-like faces, using similar methods previously done in real-human faces such as classification or analysis (ref : https://www.youtube.com/watch?v=BICsN-4B6HY).
+As the multimedia industries and deep learning technologies continues to grow, artificial faces from those media soon became an greater interest in machine learning fields. There were several researches targeting human-like faces, using similar methods previously done in real-human faces such as classification or analysis\cite{鄭光宇2018}.
 However, human-like faces tends to be deformed to be drawn or made easy, which leads to the removal of important traits that otherwise the model may have used.
 
 Most of the Japanese animations show these features. Characters in Japanese animations are often drawn without noses or lips, or even other important traits. This aspect, however, makes it an interesting target to be analyzed, as it means that machine can only be concerned with less traits than real-human faces.
@@ -121,7 +124,7 @@ This project aims to detect faces and distinguish their expressions in Japanese-
 \subsection{Comparisons with State-of-the-Art Technology}
 
 YOLO is a real-time object detection model based on CNN.
-Based on YOLO model customization, there is a prior example of real-time Japanese animation faces and eyes detection. (https://www.youtube.com/watch?v=BICsN-4B6HY)
+Based on YOLO model customization, there is a prior example of real-time Japanese animation faces and eyes detectioncite{鄭光宇2018}.
 
 But, They lack in diversities in what to do with their model: they stayed in detecting what the faces and eyes are in the animations.
 Thus, this project presents another way to use YOLO model.
@@ -224,14 +227,17 @@ Park Jinseok: Dataset Crawling \& Labeling, Result Analysis \newline
 Lee Junsu : Dataset Crawling \& Labeling, Document works \newline
 Yeu JaeHwang : Dataset Crawling \& Labeling, Result Analysis \newline
 
-\section{Reference}
-[emotion recognization]
-https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/icmi2015\_ChaZhang.pdf
-https://www.cs.ccu.edu.tw/~wtchu/papers/2017ICMR-chu2.pdf
-[yolo v1]https://pjreddie.com/media/files/papers/yolo\_1.pdf
-[yolo v2]https://pjreddie.com/media/files/papers/YOLO9000.pdf
-[yolo v3]https://pjreddie.com/media/files/papers/YOLOv3.pdf
-[yolo homepage]https://pjreddie.com/publications/
+\bibliography{proposal.bib}
+\bibliographystyle{icml2019.bst}
+
+%\section{Reference}
+%[emotion recognization]
+%https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/icmi2015\_ChaZhang.pdf
+%https://www.cs.ccu.edu.tw/~wtchu/papers/2017ICMR-chu2.pdf
+%[yolo v1]https://pjreddie.com/media/files/papers/yolo\_1.pdf
+%[yolo v2]https://pjreddie.com/media/files/papers/YOLO9000.pdf
+%[yolo v3]https://pjreddie.com/media/files/papers/YOLOv3.pdf
+%[yolo homepage]https://pjreddie.com/publications/
 
 
 \end{document}

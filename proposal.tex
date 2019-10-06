@@ -146,19 +146,19 @@ For the sake of drawing style consistency, certain animations from the 2~3 produ
 
 The listed animations will be included in the first dataset.
 \begin{itemize}
-\item \it{Myriad Colors Phantom World, Kyōto Animation}
-\item \it{Free! Dive to the future, Kyōto Animation}
-\item \it{Miss kobayasshi's Dragon Maid, Kyōto Animation}
-\item \it{Tsurune: Kazemai Kōkō Kyūdō-bu, Kyōto Animation}
+\item \textit{Myriad Colors Phantom World, Kyōto Animation}
+\item \textit{Free! Dive to the future, Kyōto Animation}
+\item \textit{Miss kobayasshi's Dragon Maid, Kyōto Animation}
+\item \textit{Tsurune: Kazemai Kōkō Kyūdō-bu, Kyōto Animation}
 
-\item \it{Everything becomes F, A-1 Pictures}
-\item \it{Magi, A-1 Pictures}
-\item \it{Darling in the Franxx, A-1 Pictures}
-\item \it{The Idolm@ster, A-1 Pictures}
-\item \it{The Idolm@ster SIDE M, A-1 Pictures}
-\item \it{The Seven Deadly Sins, A-1 Pictures}
-\item \it{Working!!, A-1 Pictures}
-\item \it{Sword Art Online, A-1 Pictures}
+\item \textit{Everything becomes F, A-1 Pictures}
+\item \textit{Magi, A-1 Pictures}
+\item \textit{Darling in the Franxx, A-1 Pictures}
+\item \textit{The Idolm@ster, A-1 Pictures}
+\item \textit{The Idolm@ster SIDE M, A-1 Pictures}
+\item \textit{The Seven Deadly Sins, A-1 Pictures}
+\item \textit{Working!!, A-1 Pictures}
+\item \textit{Sword Art Online, A-1 Pictures}
 \end{itemize}
 
 \subsubsection{From Web}
@@ -182,7 +182,7 @@ Prior to model training, the data needs to be refined, since some data could lea
 Additional information like facial expressions is expected to be labelled manually in the form of layers in PSD files. From this manual process of labeling, this project assumes several rules for labeling:
 \begin{itemize}
 \item the human should not be in deformed form.
-\item Do not label accessories such as hats or glasses \newline
+\item Do not label accessories such as hats or glasses. \newline
 \end{itemize}
 
 Following list of labels will be used:
@@ -192,6 +192,26 @@ Following list of labels will be used:
 \item (id)\_eyeR
 \item (id)\_emote\_(anger$|$contempt$|$disgust$|$fear\newline$|$happiness$|$neutral$|$sadness$|$suprise)
 \end{itemize}
+
+\begin{figure}[ht]
+\vskip 0.2in
+\begin{center}
+\centerline{\includegraphics[width=\columnwidth]{training.png}}
+\caption{A brief model for training.}
+\label{icml-historical}
+\end{center}
+\vskip -0.2in
+\end{figure}
+
+\begin{figure}[ht]
+\vskip 0.2in
+\begin{center}
+\centerline{\includegraphics[width=\columnwidth]{service.png}}
+\caption{A brief model for further services.}
+\label{icml-historical}
+\end{center}
+\vskip -0.2in
+\end{figure}
 
 \subsection{Environment}
 \subsubsection{Framework}
@@ -229,7 +249,7 @@ Kim Taehoon : Dataset Crawling \& Labeling, Model Design \newline
 Ban Yonghyu: Dataset Crawling \& Labeling, Model Design \newline
 Park Jinseok: Dataset Crawling \& Labeling, Result Analysis \newline
 Lee Junsu : Dataset Crawling \& Labeling, Document works \newline
-Yeu JaeHwang : Dataset Crawling \& Labeling, Result Analysis \newline
+Yeu Jaehwang : Dataset Crawling \& Labeling, Result Analysis \newline
 
 \bibliography{proposal.bib}
 \bibliographystyle{icml2019.bst}

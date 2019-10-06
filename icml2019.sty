@@ -373,7 +373,9 @@ the offending package(s), or layout-changing commands and try again.
  	    \typeout{}%
            \typeout{}%
            % set default running title
-	   \chead{\small\bf Title Suppressed Due to Excessive Size}%
+	   %\chead{\small\bf Title Suppressed Due to Excessive Size}%
+	   % Workaround for xetex
+  	   \chead{\small\bf\@icmltitlerunning}%
     \else
 	   % 'everything' fine, set provided running title
   	   \chead{\small\bf\@icmltitlerunning}%

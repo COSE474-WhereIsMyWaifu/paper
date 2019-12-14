@@ -8,6 +8,8 @@
 \usepackage{subfigure}
 \usepackage{booktabs} % for professional tables
 \usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{listings}
 
 % hyperref makes hyperlinks in the resulting PDF.
 % If your build breaks (sometimes temporarily if a hyperlink spans a page)
@@ -98,9 +100,24 @@
 %
 % \end{abstract}
 
+\lstdefinestyle{custompy}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=Python,
+  caption=Python,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{purple}
+}
+
 \section{Role}
-Kim Taehoon - Main Programmer\newline
-Park Jinseok - Data Labelling, Document Works\newline
+Kim Taehoon - Object detection\newline
+Park Jinseok - Facial Expression Recognition\newline
 Lee Junsu - Data Labelling, Document Works\newline
 Yeu Jaehwang - Data Labelling, Document Works\newline
 Ban Yonghyu - Infrastructure management, Document works\newline
@@ -132,10 +149,8 @@ diversity.
 
 \subsubsection{Labeling rule}
 All faces in images were marked with individual layers unless the face could not
-be shown directly.
-
-Each layer was named after what expression or feature the face bear; in 8
-categories.
+be shown directly. Each layer was named after what expression or feature the
+face bear; in 8 categories.
 
 In real-world, the vector for human expressions would be as follows: Anger,
 Contempt, Fear, Sadness, Surprise, Disgust, Happiness, and Neutral. However, in
@@ -170,10 +185,10 @@ another reason for not using this feature - lack of hardware spec made
 allocations of more memory impossible.
 
 \subsubsection{Facial Expression Recognition}
-Facial expression recognition recognition was based on Resnet 18, with a loss
-function of Cross Entropy. The reason for choosing Resnet 18 and Cross-Entropy
-loss was that it showed the best result among the candidates of Resnet 18, 34,
-50 and L1, L2, Cross-Entropy Loss.
+Facial expression recognition recognition was based on ResNet
+18\cite{DBLP:journals/corr/HeZRS15}, with a loss function of Cross Entropy. The
+reason for choosing ResNet 18 and Cross-Entropy loss was that it showed the best
+result among the candidates of ResNet 18, 34, 50 and L1, L2, Cross-Entropy Loss.
 
 \subsection{Training and Result}
 \subsubsection{Face detector}
@@ -216,10 +231,11 @@ BBOX, we crop and resize each region to run classifier, just like general
 
 \section{State-of-the-Art}
 Recent field of object detection has evolved to use multiple classifiers at a
-time in a two-staged detectors - referred to as Cascade Mask-RCNN. Though YOLO
-is not a State-of-the-Art technology, its fast training and detection speed made
-this project to adapt it as first-staged object detection model. Also, making
-mask data is a hard and laboring job, thus it was better to use simple and fast
+time in a two-staged detectors - referred to as Cascade
+RCNN\cite{DBLP:journals/corr/abs-1906-09756}. Though YOLO is not a
+State-of-the-Art technology, its fast training and detection speed made this
+project to adapt it as first-staged object detection model. Also, making mask
+data is a hard and laboring job, thus it was better to use simple and fast
 framework for this project.
 
 Facial Expression Classification has been a quite highlighted topic in deep
@@ -261,12 +277,12 @@ hold such BBOX than just to discard it, for discarded boxes could also carry an
 expected value on detecting objects. We have named this alternative approach as
 Group Merge Suppression (GMS).
 
-[TODO] Group Merge Suppression Algorithm Image
+\lstinputlisting [style=custompy]{src/postprocess-algo.py}
 
 To check whether GMS works better in practice than NMS, some data from the
 test/validation set were given to each algorithm. By counting the result showing
-higher IOU compared to the original BBOX, GMS showed better performance, with a
-number of N (TODO)
+higher IOU with the original BBOX, 68\% of result showed GMS performs better
+than NMS.
 
 \begin{figure}[h]
   \centering
@@ -285,8 +301,8 @@ collected. This way, manual labelling time could be significantly reduced,
 without any training problems regarding the dataset.
 
 As a result, some data is labelled with more detailed segmentation. By using
-this data and reinforcing them, more segmentation could be applied, as Mask-RCNN
-does in its network.
+this data and reinforcing them, more segmentation could be applied, as
+Cascade-RCNN does in its network.
 
 \subsection{Unification of Facial Expression Recognition within YOLO}
 Originally, YOLO supports not only finding BBOXes of targets but also
